@@ -17,7 +17,6 @@ export const Header = styled.View`
   justify-content:space-between;
   align-items: center;
 `;
-
 export const HeaderTitle = styled.Text`
   color: #f4ede8;
   font-size: 20px;
@@ -45,7 +44,7 @@ export const ProvidersListTitle = styled.Text`
   font-size: 24px;
   margin-bottom: 24px;
   color: #f4ede8;
-  font-family: 'RobotoSlab-Midium'
+  font-family: 'RobotoSlab-Midium';
 `;
 
 export const ProviderContainer = styled(RectButton)`
@@ -66,7 +65,6 @@ border-radius: 36px;
 `;
 
 export const ProviderInfo = styled.View`
-
   flex:1;
   margin-left:20px;
 

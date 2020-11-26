@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import { useAuth } from '../../hooks/auth';
 import api from '../../services/api';
+import default_avatar from '../../assets/default_avatar.png';
 
 import {
   Container,
@@ -29,7 +30,7 @@ export interface Provider{
 }
 
 const Dashboard: React.FC = () => {
-  const { signOut, user } = useAuth();
+  const { user } = useAuth();
   const { navigate } = useNavigation();
 
   const [providers, setProviders] = useState<Provider[]>([]);
@@ -60,7 +61,7 @@ const Dashboard: React.FC = () => {
           <UserName>{user.name}</UserName>
         </HeaderTitle>
         <ProfileButton onPress={navigateToProfile}>
-          <UserAvatar source={{ uri: user.avatar_url }} />
+          <UserAvatar source={user.avatar_url ? { uri: user.avatar_url } : default_avatar} />
         </ProfileButton>
       </Header>
 
@@ -72,7 +73,9 @@ const Dashboard: React.FC = () => {
         }
         renderItem={({ item: provider }) => (
           <ProviderContainer onPress={() => navigateToCreateAppointment(provider.id)}>
-            <ProviderAvatar source={{ uri: provider.avatar_url }} />
+            <ProviderAvatar
+              source={provider.avatar_url ? { uri: provider.avatar_url } : default_avatar}
+            />
             <ProviderInfo>
               <ProviderName>{provider.name}</ProviderName>
               <ProviderMeta>
