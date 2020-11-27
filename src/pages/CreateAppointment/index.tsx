@@ -209,6 +209,7 @@ const CreateAppointment: React.FC = () => {
               {morningAvailability.map(({ hourFormated, available, hour }) => (
                 <Hour
                   enabled={available}
+                  key={hour}
                   available={available}
                   onPress={() => handleSelectHour(hour)}
                   selected={selectedHour === hour}
@@ -226,6 +227,7 @@ const CreateAppointment: React.FC = () => {
               {afternoonAvailability.map(({ hourFormated, available, hour }) => (
                 <Hour
                   enabled={available}
+                  key={hour}
                   available={available}
                   onPress={() => handleSelectHour(hour)}
                   selected={selectedHour === hour}
