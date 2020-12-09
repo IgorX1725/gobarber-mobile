@@ -30,7 +30,7 @@ export interface Provider{
 }
 
 const Dashboard: React.FC = () => {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
   const { navigate } = useNavigation();
 
   const [providers, setProviders] = useState<Provider[]>([]);
@@ -54,7 +54,7 @@ const Dashboard: React.FC = () => {
   return (
     <Container>
       <Header>
-        <HeaderTitle>
+        <HeaderTitle onPress={signOut}>
           Bem-vindo,
           {' '}
           {'\n'}
